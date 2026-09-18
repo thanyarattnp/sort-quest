@@ -1,50 +1,16 @@
 <!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
-  <title>Sort Quest</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Tahoma, sans-serif;
-      background: #f4f2ff;
-    }
-
-    header {
-      padding: 12px 16px;
-      background: white;
-      line-height: 1.7;
-    }
-
-    a { color: #6348e8; }
-
-    iframe {
-      display: block;
-      width: 100%;
-      height: calc(100dvh - 90px);
-      min-height: 600px;
-      border: 0;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <strong>Sort Quest</strong><br>
-    หากเกมไม่แสดง
-    <a href="https://script.google.com/a/macros/fte.kmutnb.ac.th/s/AKfycbxDczIhSKQw9riu0gQsOtPrVxnS5DyX8Yj6rkyCn762iotVGqVEPc3cehHnGPqflOBR/exec"
-       target="_blank"
-       rel="noopener">
-      เปิดเกมในหน้าต่างใหม่
-    </a>
-  </header>
-
-  <iframe
-    src="https://script.google.com/a/macros/fte.kmutnb.ac.th/s/AKfycbxDczIhSKQw9riu0gQsOtPrVxnS5DyX8Yj6rkyCn762iotVGqVEPc3cehHnGPqflOBR/exe"
-    title="Sort_quest">
-  </iframe>
-</body>
-</html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sort Quest • ภารกิจเรียงลำดับ</title>
+<style>body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f3f5fc;color:#17203e}header{padding:10px 16px;background:#fff;border-bottom:1px solid #e1e5f0;font-size:14px}a{color:#6348e8}iframe{display:block;width:100%;height:calc(100vh - 70px);height:calc(100dvh - 70px);min-height:620px;border:0}.setup{padding:24px;color:#a83048}</style>
+</head><body><header><strong>Sort Quest</strong> · ภารกิจเรียงลำดับข้อมูล<br>หากเกมไม่แสดง <a id="open-game" target="_blank" rel="noopener">เปิดเกมในหน้าต่างใหม่</a></header>
+<iframe id="game" title="เกม Sort Quest"></iframe>
+<script>
+// ใส่ URL Web app จาก Apps Script ที่ลงท้าย /exec เพียงจุดเดียว
+const APPS_SCRIPT_URL = 'https://script.google.com/a/macros/fte.kmutnb.ac.th/s/AKfycbxDczIhSKQw9riu0gQsOtPrVxnS5DyX8Yj6rkyCn762iotVGqVEPc3cehHnGPqflOBR/exec';
+if(/^https:\/\/script\.google\.com\/(?:a\/[^/]+\/)?macros\/s\/[^/]+\/exec$/.test(APPS_SCRIPT_URL)) {
+ document.getElementById('game').src=APPS_SCRIPT_URL;
+ document.getElementById('open-game').href=APPS_SCRIPT_URL;
+} else {
+ document.getElementById('game').remove();
+ const p=document.createElement('p');p.className='setup';p.textContent='กรุณาใส่ลิงก์ Apps Script /exec ใน APPS_SCRIPT_URL ของไฟล์ index.html';document.body.appendChild(p);
+}
+</script></body></html>
